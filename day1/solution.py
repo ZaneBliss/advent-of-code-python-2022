@@ -14,8 +14,7 @@ def calories_per_elf(file):
     return total_calories_per_elf
 
 
-calorie_list = calories_per_elf("input.txt")
+def sum_top_three(calorie_list):
+    calorie_list.sort(reverse=True)
 
-calorie_list.sort(reverse=True)
-
-print(sum(calorie_list[:3]))
+    return sum(calorie_list[:3])
