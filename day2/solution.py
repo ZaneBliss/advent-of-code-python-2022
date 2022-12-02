@@ -12,39 +12,6 @@ def part_2(file):
     return total_score
 
 
-def calculate_score_for_outcome(opponent_move, outcome):
-    round_score = outcome['score']
-    move_score = 0
-
-    if outcome['status'] == 'loss':
-        if opponent_move['action'] == 'rock':
-            move_score = 3
-        if opponent_move['action'] == 'paper':
-            move_score = 1
-        if opponent_move['action'] == 'scissors':
-            move_score = 2
-    if outcome['status'] == 'tie':
-        move_score = opponent_move['score']
-    if outcome['status'] == 'win':
-        if opponent_move['action'] == 'rock':
-            move_score = 2
-        if opponent_move['action'] == 'paper':
-            move_score = 3
-        if opponent_move['action'] == 'scissors':
-            move_score = 1
-
-    return move_score + round_score
-
-
-def map_outcome_to_dict(outcome):
-    if outcome == 'X':
-        return {'status': 'loss', 'score': 0}
-    elif outcome == 'Y':
-        return {'status': 'tie', 'score': 3}
-    else:
-        return {'status': 'win', 'score': 6}
-
-
 def map_move_to_dict(move):
     if move == 'A' or move == 'X':
         return {'action': 'rock', 'score': 1}
